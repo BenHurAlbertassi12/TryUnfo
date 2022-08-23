@@ -1,4 +1,5 @@
 import React from 'react';
+// import './Form.css';
 
 class Form extends React.Component {
   render() {
@@ -44,13 +45,13 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="req1-8">
+          Super Trunfo?
           <input type="checkbox" id="req1-8" />
         </label>
 
-        <label htmlFor="req1-9">
-          Super Trunfo?
-          <input id="req1-9" type="button" data-testid="save-button" />
-        </label>
+        <button id="req1-9" type="button" data-testid="save-button">
+          Save
+        </button>
       </form>
     );
   }
