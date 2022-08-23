@@ -46,10 +46,10 @@ class Form extends React.Component {
 
         <label htmlFor="req1-8">
           Super Trunfo?
-          <input type="checkbox" id="req1-8" />
+          <input type="checkbox" id="req1-8" data-testid="trunfo-input" />
         </label>
 
-        <button id="req1-9" type="button" data-testid="save-button">
+        <button type="button" data-testid="save-button">
           Save
         </button>
       </form>
