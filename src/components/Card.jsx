@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes, { bool } from 'prop-types';
-// import Form from './Form';
 
 class Card extends React.Component {
   render() {

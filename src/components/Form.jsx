@@ -30,6 +30,7 @@ class Form extends React.Component {
             data-testid="name-input"
             id="name"
             name="name"
+
           />
         </label>
 
@@ -41,6 +42,7 @@ class Form extends React.Component {
             data-testid="description-input"
             id="cardDescription"
             name="cardDescription"
+
           />
         </label>
 
@@ -90,6 +92,7 @@ class Form extends React.Component {
             src=""
             id="cardImage"
             name="cardImage"
+
           />
         </label>
 
@@ -101,6 +104,7 @@ class Form extends React.Component {
             data-testid="rare-input"
             name="cardRare"
             id="cardRare"
+
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
@@ -124,9 +128,8 @@ class Form extends React.Component {
 
         <button
           disabled={ isSaveButtonDisabled }
-          //   value={ cardName }
           onClick={ onSaveButtonClick }
-          type="button"
+          type="submit"
           data-testid="save-button"
         >
           Save

@@ -8,12 +8,13 @@ class App extends React.Component {
     this.state = {
       name: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
+      // disable: true,
     };
   }
 
@@ -26,6 +27,32 @@ class App extends React.Component {
     });
   };
 
+  formularioValido = () => {
+    const {
+      name,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    } = this.state;
+
+    const atributototal = 210;
+    const atributoMaximo = 90;
+    const atributoMinimo = 0;
+
+    const soma = cardAttr1 + cardAttr2 + cardAttr3;
+    const buscaInfo = ((name && cardDescription && cardImage && cardRare) !== '');
+    const checkAtributo = (
+      soma <= atributototal
+      && cardAttr1 <= atributoMaximo && cardAttr1 >= atributoMinimo
+      && cardAttr2 <= atributoMaximo && cardAttr2 >= atributoMinimo
+      && cardAttr3 <= atributoMaximo && cardAttr3 >= atributoMinimo
+    );
+    if (buscaInfo && checkAtributo) return false;
+  };
+
   render() {
     const {
       cardImage,
@@ -36,6 +63,7 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2,
       cardAttr3,
+      // isSaveButtonDisabled,
     } = this.state;
     return (
       <div>
@@ -48,6 +76,8 @@ class App extends React.Component {
           cardAttr2={ cardAttr2 }
           cardAttr3={ cardAttr3 }
           cardRare={ cardRare }
+          isSaveButtonDisabled={ this.formularioValido() }
+
         />
         <Card
           cardTrunfo={ cardTrunfo }
@@ -58,10 +88,12 @@ class App extends React.Component {
           cardAttr2={ cardAttr2 }
           cardAttr3={ cardAttr3 }
           cardRare={ cardRare }
+          isSaveButtonDisabled={ this.formularioValido() }
         />
       </div>
     );
   }
 }
+
 export default App;
 // lecture/11.2
