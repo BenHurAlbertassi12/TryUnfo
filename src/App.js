@@ -14,7 +14,6 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      // disable: true,
     };
   }
 
@@ -42,7 +41,7 @@ class App extends React.Component {
     const atributoMaximo = 90;
     const atributoMinimo = 0;
 
-    const soma = cardAttr1 + cardAttr2 + cardAttr3;
+    const soma = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
     const buscaInfo = ((name && cardDescription && cardImage && cardRare) !== '');
     const checkAtributo = (
       soma <= atributototal
@@ -50,7 +49,11 @@ class App extends React.Component {
       && cardAttr2 <= atributoMaximo && cardAttr2 >= atributoMinimo
       && cardAttr3 <= atributoMaximo && cardAttr3 >= atributoMinimo
     );
-    if (!buscaInfo === true && !checkAtributo === true) return true;
+    if (buscaInfo === true && checkAtributo === true)
+    { 
+      return false;
+    } 
+    return true;
   };
 
   render() {
@@ -97,3 +100,4 @@ class App extends React.Component {
 
 export default App;
 // lecture/11.2
+// requisito 6 "destravei" com o video https://www.youtube.com/watch?v=8SbOweou7Rw apos ele alterei para o que desejava
