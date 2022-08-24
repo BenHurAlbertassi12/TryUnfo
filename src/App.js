@@ -50,7 +50,7 @@ class App extends React.Component {
       && cardAttr2 <= atributoMaximo && cardAttr2 >= atributoMinimo
       && cardAttr3 <= atributoMaximo && cardAttr3 >= atributoMinimo
     );
-    if (buscaInfo && checkAtributo) return false;
+    if (!buscaInfo === true && !checkAtributo === true) return true;
   };
 
   render() {
