@@ -1,0 +1,69 @@
+body {
+  background-color: #282c34;
+  color: white;
+  font-family: sans-serif;
+  margin: 15px;
+}
+
+header {
+  background-color: #046b52;
+  padding: 20px;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+section {
+  flex: 1;
+  padding: 20px;
+  text-align: flex-start;
+}
+
+section:first-of-type {
+  border-right: 1px white solid;
+}
+
+label {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  text-align: left;
+}
+
+input, button {
+  height: 40px;
+  margin: 15px 0;
+  width: 60%;
+}
+
+form {
+  text-align: left;
+}
+
+button {
+  background-color: rgb(89, 255, 122);
+  border: none;
+  border-radius: 5px;
+  color: rgb(16, 22, 87);
+  cursor: pointer;
+  display: block;
+}
+
+.box {
+  align-items: center;
+  display: inline;
+  justify-content: center;
+}
+
+.caixa {
+  align-items: center;
+  display: inline;
+  justify-content: center;
+  width: 15px;
+
+}

@@ -1,37 +1,36 @@
 import React from 'react';
-import Form from './components/Form';
-import Card from './components/Card';
+import Card from './Card';
+import Form from './Form';
+import './estilo.css';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: false,
-    };
-  }
+class RenderCard extends React.Component {
+  state = {
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: 0,
+    cardAttr2: 0,
+    cardAttr3: 0,
+    cardImage: '',
+    cardRare: '',
+    cardTrunfo: false,
+  };
 
-  handleChange = ({ target }) => {
-    const { name, type } = target;
-    const value = type === 'checkbox' ? target.checked : target.value;
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
     });
-  };
+    console.log(name);
+  }
 
   render() {
     const {
       cardImage,
       cardTrunfo,
       cardRare,
-      name,
+      cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
@@ -41,7 +40,7 @@ class App extends React.Component {
       <div>
         <Form
           onInputChange={ this.handleChange }
-          cardName={ name }
+          cardName={ cardName }
           cardDescription={ cardDescription }
           cardImage={ cardImage }
           cardAttr1={ cardAttr1 }
@@ -51,7 +50,7 @@ class App extends React.Component {
         />
         <Card
           cardTrunfo={ cardTrunfo }
-          cardName={ name }
+          cardName={ cardName }
           cardDescription={ cardDescription }
           cardImage={ cardImage }
           cardAttr1={ cardAttr1 }
@@ -63,5 +62,5 @@ class App extends React.Component {
     );
   }
 }
-export default App;
-// lecture/11.2
+export default RenderCard;
+// Aula lecture/11.2

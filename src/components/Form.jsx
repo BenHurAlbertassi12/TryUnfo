@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './Form.css';
+import './estilo.css';
 
 class Form extends React.Component {
   render() {
@@ -21,61 +21,66 @@ class Form extends React.Component {
 
     return (
       <form>
-        <label htmlFor="req1-1">
+        <label htmlFor="name">
           Nome
           <input
             value={ cardName }
             onChange={ onInputChange }
             type="text"
             data-testid="name-input"
-            id="req1-1"
+            id="name"
+            name="name"
           />
         </label>
 
-        <label htmlFor="req1-2">
+        <label htmlFor="cardDescription">
           Descrição
           <textarea
             value={ cardDescription }
             onChange={ onInputChange }
             data-testid="description-input"
-            id="req1-2"
+            id="cardDescription"
+            name="cardDescription"
           />
         </label>
 
-        <label htmlFor="req1-3">
+        <label htmlFor="cardAttr1req1-3">
           Atributo 1
           <input
             value={ cardAttr1 }
             onChange={ onInputChange }
             data-testid="attr1-input"
             type="number"
-            id="req1-3"
+            id="cardAttr1"
+            name="cardAttr1"
           />
         </label>
 
-        <label htmlFor="req1-4">
+        <label htmlFor="cardAttr2">
           Atributo 2
           <input
             value={ cardAttr2 }
             onChange={ onInputChange }
             data-testid="attr2-input"
             type="number"
-            id="req1-4"
+            id="cardAttr2"
+            name="cardAttr2"
           />
         </label>
 
-        <label htmlFor="req1-5">
+        <label htmlFor="cardAttr3">
           Atributo 3
           <input
             value={ cardAttr3 }
             onChange={ onInputChange }
             data-testid="attr3-input"
             type="number"
-            id="req1-5"
+            id="cardAttr3"
+            name="cardAttr3"
           />
         </label>
 
-        <label htmlFor="req1-6">
+        <label htmlFor="cardImage">
           Imagem
           <input
             value={ cardImage }
@@ -83,18 +88,19 @@ class Form extends React.Component {
             type="text"
             data-testid="image-input"
             src=""
-            id="req1-6"
+            id="cardImage"
+            name="cardImage"
           />
         </label>
 
-        <label htmlFor="req1-7">
+        <label htmlFor="cardRare">
           Raridade
           <select
             value={ cardRare }
             onChange={ onInputChange }
             data-testid="rare-input"
-            name=""
-            id="req1-7"
+            name="cardRare"
+            id="cardRare"
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
@@ -102,10 +108,12 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="req1-8">
+        <label htmlFor="cardTrunfo" className="box">
           Super Trunfo
           <input
-            id="req1-8"
+            className="caixa"
+            id="cardTrunfo"
+            name="cardTrunfo"
             value={ cardTrunfo }
             checked={ cardTrunfo }
             onChange={ onInputChange }
