@@ -14,14 +14,18 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      saveDate: [], // recebe da linha 24, que pega o que estava definido antes (state) e colona nessa array.
+      saveDate: [], // recebe da linha 29, que pega o que estava definido antes (state) e colona nessa array.
     };
   }
+
+  superTyunfo = () => {
+    const { saveDate } = this.state;
+    return saveDate.some((item) => item.cardTrunfo);
+  };
 
   onSaveButtonClick = (noAtt) => {
     noAtt.preventDefault();
     this.setState((antes) => ({
-      saveDate: [...antes.saveDate, antes],
       name: '',
       cardImage: '',
       cardDescription: '',
@@ -30,6 +34,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardRare: 'normal',
       cardTrunfo: false,
+      saveDate: [...antes.saveDate, antes],
     }));
   };
 
@@ -72,6 +77,7 @@ class App extends React.Component {
 
   render() {
     const {
+      // saveDate,
       cardImage,
       cardTrunfo,
       cardRare,
@@ -87,6 +93,7 @@ class App extends React.Component {
         <Form
           onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.handleChange }
+          superTyunfo={ this.superTyunfo() }
           cardName={ name }
           cardDescription={ cardDescription }
           cardImage={ cardImage }
@@ -95,6 +102,7 @@ class App extends React.Component {
           cardAttr3={ cardAttr3 }
           cardRare={ cardRare }
           isSaveButtonDisabled={ this.formularioValido() }
+          cardTrunfo={ cardTrunfo }
 
         />
         <Card
