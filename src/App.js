@@ -14,7 +14,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      saveDate: [],
+      saveDate: [], // recebe da linha 24, que pega o que estava definido antes (state) e colona nessa array.
     };
   }
 
@@ -67,11 +67,7 @@ class App extends React.Component {
       && cardAttr2 <= atributoMaximo && cardAttr2 >= atributoMinimo
       && cardAttr3 <= atributoMaximo && cardAttr3 >= atributoMinimo
     );
-   (!buscaInfo === false && !checkAtributo === false)
-    {
-      return false;
-    }
-    return true;
+    return !(buscaInfo && checkAtributo); // duvida resolvida pelo slack com o prof Wolf.
   };
 
   render() {
