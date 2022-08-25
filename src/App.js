@@ -14,8 +14,26 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
+      saveDate: [],
     };
   }
+
+  onSaveButtonClick = (noAtt) => {
+    noAtt.preventDefault();
+    this.setState((antes) => ({
+      saveDate: [...antes.saveDate, antes],
+      name: '',
+      cardImage: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardRare: 'normal',
+      cardTrunfo: false,
+    }));
+  };
+
+  // https://pt-br.reactjs.org/docs/handling-events.html
 
   handleChange = ({ target }) => {
     const { name, type } = target;
@@ -49,10 +67,10 @@ class App extends React.Component {
       && cardAttr2 <= atributoMaximo && cardAttr2 >= atributoMinimo
       && cardAttr3 <= atributoMaximo && cardAttr3 >= atributoMinimo
     );
-    if (buscaInfo === true && checkAtributo === true)
-    { 
+   (!buscaInfo === false && !checkAtributo === false)
+    {
       return false;
-    } 
+    }
     return true;
   };
 
@@ -71,6 +89,7 @@ class App extends React.Component {
     return (
       <div>
         <Form
+          onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.handleChange }
           cardName={ name }
           cardDescription={ cardDescription }
@@ -100,4 +119,3 @@ class App extends React.Component {
 
 export default App;
 // lecture/11.2
-// requisito 6 "destravei" com o video https://www.youtube.com/watch?v=8SbOweou7Rw apos ele alterei para o que desejava
