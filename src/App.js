@@ -77,7 +77,7 @@ class App extends React.Component {
 
   render() {
     const {
-      // saveDate,
+      saveDate,
       cardImage,
       cardTrunfo,
       cardRare,
@@ -91,6 +91,7 @@ class App extends React.Component {
     return (
       <div>
         <Form
+          renderCard={ saveDate }
           onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.handleChange }
           superTyunfo={ this.superTyunfo() }
@@ -116,6 +117,26 @@ class App extends React.Component {
           cardRare={ cardRare }
           isSaveButtonDisabled={ this.formularioValido() }
         />
+        <div>
+          {
+            saveDate.map((item, index) => (
+              <div key={ index }>
+                <Card
+                  cardTrunfo={ item.cardTrunfo }
+                  cardName={ item.name }
+                  cardDescription={ item.cardDescription }
+                  cardImage={ item.cardImage }
+                  cardAttr1={ item.cardAttr1 }
+                  cardAttr2={ item.cardAttr2 }
+                  cardAttr3={ item.cardAttr3 }
+                  cardRare={ item.cardRare }
+
+                />
+              </div>
+            ))
+          }
+
+        </div>
       </div>
     );
   }
